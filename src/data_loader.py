@@ -1,14 +1,12 @@
 
 import pandas as pd
 
-
-
 def load_data(filename):
     """
     Load a Goodreads CSV file.
 
     Parameters:
-        filename (str): Name of the CSV file.
+        filename: Name of the CSV file.
 
     Returns:
         pd.DataFrame: Dataset loaded as a DataFrame.
