@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-from data_loader import load_data
-from data_cleaning import (
+from src.data_loader import load_data
+from src.data_cleaning import (
     clean_publication_year,
     remove_repeated_tags,
     remove_duplicates
 )
-from plots import (
+from src.plots import (
     plot_popularity,
     plot_publication_year,
     plot_genres,
