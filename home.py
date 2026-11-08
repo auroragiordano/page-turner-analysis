@@ -2,49 +2,153 @@
 import streamlit as st
 
 
-# Page configuration
-st.set_page_config(
-    page_title="Page Turners",
-    page_icon="📚",
-    layout="wide"
-)
+# Hero section
+st.markdown("""
+<style>
+.hero {
+    text-align: center;
+    padding: 75px 20px 65px;
+}
+.hero h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    color: #1D1D1F;
+}
+.hero p {
+    font-size: 21px;
+    color: #6E6E73;
+    margin-top: 24px;
+}
+</style>
 
-# Project introduction
-st.title("📚 Page Turners")
-st.subheader("Exploring Goodreads Books and Ratings")
+<div class="hero">
+    <h1>Discover what makes<br>a book great.</h1>
+    <p>Explore 10,000 books and millions of Goodreads ratings.</p>
+</div>
+""", unsafe_allow_html=True)
 
-st.write(
-    "An interactive dashboard exploring book popularity, "
-    "average ratings, publication years, and literary genres "
-    "using the Goodreads dataset."
-)
-
-st.divider()
 
 # Dataset overview
-st.header("Dataset Overview")
+st.header("The dataset. At a glance.")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3, gap="medium")
 
 with col1:
-    st.metric("Books", "10,000")
+    with st.container(border=True):
+        st.metric("Books", "10,000")
 
 with col2:
-    st.metric("User Ratings", "5,976,479")
+    with st.container(border=True):
+        st.metric("User Ratings", "5,976,479")
 
 with col3:
-    st.metric("Unique Tags", "34,252")
+    with st.container(border=True):
+        st.metric("Unique Tags", "34,252")
 
-st.divider()
 
-# Project objectives
-st.header("Project Objectives")
+st.write("")
+st.write("")
 
-st.write("""
-1. Are the most popular books also the highest-rated?
-2. Do average ratings differ across publication decades?
-3. Which literary genres receive the highest average ratings?
-4. How are user ratings distributed from 1 to 5 stars?
-""")
 
+# Interactive discoveries
+st.header("The story behind the numbers.")
+st.write("Every book has a story. So does the data.")
+
+insights = {
+    "Popularity": {
+        "value": "0.045",
+        "label": "Pearson correlation",
+        "title": "Famous doesn't always mean better.",
+        "description": (
+            "Book popularity has almost no linear relationship "
+            "with average rating."
+        ),
+        "color": "#0071E3"
+    },
+    "Genres": {
+        "value": "4.058",
+        "label": "Fantasy average rating",
+        "title": "A little magic goes a long way.",
+        "description": (
+            "Fantasy receives the highest average rating among "
+            "the selected literary categories."
+        ),
+        "color": "#9D77C2"
+    },
+    "Ratings": {
+        "value": "69%",
+        "label": "4 and 5-star ratings",
+        "title": "Readers tend to see the bright side.",
+        "description": (
+            "Around 69% of user ratings are either "
+            "four or five stars."
+        ),
+        "color": "#D58F42"
+    }
+}
+
+# Choose a discovery
+selection = st.segmented_control(
+    "Explore a discovery",
+    options=list(insights),
+    default="Popularity"
+)
+
+insight = insights[selection]
+
+# Display selected discovery
+with st.container(border=True):
+    st.markdown(
+        f"<h1 style='color:{insight['color']}; "
+        f"font-size:64px; margin-bottom:0'>"
+        f"{insight['value']}</h1>",
+        unsafe_allow_html=True
+    )
+
+    st.caption(insight["label"])
+    st.subheader(insight["title"])
+    st.write(insight["description"])
+
+
+st.write("")
+st.write("")
+
+
+# Research questions
+st.header("Four questions. New perspectives.")
+
+col1, col2 = st.columns(2, gap="medium")
+
+with col1:
+    with st.container(border=True):
+        st.subheader("01. Popularity")
+        st.write(
+            "Are the most popular books also the highest-rated?"
+        )
+
+    with st.container(border=True):
+        st.subheader("03. Literary Genres")
+        st.write(
+            "Which genres tend to receive the highest ratings?"
+        )
+
+with col2:
+    with st.container(border=True):
+        st.subheader("02. Publication Years")
+        st.write(
+            "Are older books rated differently from newer books?"
+        )
+
+    with st.container(border=True):
+        st.subheader("04. User Ratings")
+        st.write(
+            "How are Goodreads user ratings distributed?"
+        )
+
+
+st.write("")
+
+# Navigation message
 st.info("Select a page from the sidebar to explore the analyses.")
