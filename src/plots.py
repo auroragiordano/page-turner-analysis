@@ -2,6 +2,7 @@
 import matplotlib.pyplot as plt
 
 
+# Research Question 1: Are the most popular books also the highest-rated?
 def plot_popularity(books):
     """Plot the relationship between popularity and average rating."""
 
@@ -20,9 +21,12 @@ def plot_popularity(books):
     ax.set_ylabel("Average rating")
     ax.set_title("Book Popularity vs Average Rating")
 
+    fig.tight_layout()
+
     return fig
 
 
+# Research Question 2: Do average ratings differ across publication decades?
 def plot_publication_year(result):
     """Plot average book ratings by publication decade."""
 
@@ -43,9 +47,12 @@ def plot_publication_year(result):
     ax.set_title("Average Book Rating by Publication Decade")
     ax.grid(alpha=0.3)
 
+    fig.tight_layout()
+
     return fig
 
 
+# Research Question 3: Which literary genres receive the highest average ratings?
 def plot_genres(result):
     """Compare average book ratings across literary genres."""
 
@@ -67,6 +74,7 @@ def plot_genres(result):
     return fig
 
 
+# Research Question 4: How are user ratings distributed from 1 to 5 stars?
 def plot_ratings_distribution(result):
     """Plot the distribution of user ratings."""
 

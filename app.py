@@ -11,11 +11,32 @@ st.set_page_config(
 
 # Define navigation pages
 pages = [
-    st.Page("home.py", title="Home", icon="🏠", default=True),
-    st.Page("pages/1_Popularity.py", title="Popularity & Ratings"),
-    st.Page("pages/2_Publication_Years.py", title="Publication Years"),
-    st.Page("pages/3_Literary_Genres.py", title="Literary Genres"),
-    st.Page("pages/4_Ratings_Distribution.py", title="Ratings Distribution")
+    st.Page(
+        "home.py",
+        title="Home",
+        icon=":material/home:",
+        default=True
+    ),
+    st.Page(
+        "pages/1_Popularity.py",
+        title="Popularity & Ratings",
+        icon=":material/trending_up:"
+    ),
+    st.Page(
+        "pages/2_Publication_Years.py",
+        title="Publication Years",
+        icon=":material/calendar_month:"
+    ),
+    st.Page(
+        "pages/3_Literary_Genres.py",
+        title="Literary Genres",
+        icon=":material/menu_book:"
+    ),
+    st.Page(
+        "pages/4_Ratings_Distribution.py",
+        title="Ratings Distribution",
+        icon=":material/star:"
+    )
 ]
 
 # Display selected page

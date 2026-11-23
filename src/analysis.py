@@ -1,4 +1,6 @@
+
 import matplotlib.pyplot as plt
+
 from src.data_loader import load_data
 from src.data_cleaning import (
     clean_publication_year,
@@ -13,6 +15,7 @@ from src.plots import (
 )
 
 
+# Research Question 1: Are the most popular books also the highest-rated?
 def popularity_analysis(books):
     """Analyze the relationship between popularity and average rating."""
 
@@ -30,6 +33,7 @@ def popularity_analysis(books):
     return correlation
 
 
+# Research Question 2: Do average ratings differ across publication decades?
 def publication_year_analysis(books):
     """Calculate average book ratings by publication decade."""
 
@@ -56,6 +60,7 @@ def publication_year_analysis(books):
     return result
 
 
+# Research Question 3: Which literary genres receive the highest average ratings?
 def genre_analysis(books, book_tags, tags):
     """Calculate average book ratings by literary genre."""
 
@@ -104,6 +109,7 @@ def genre_analysis(books, book_tags, tags):
     return result
 
 
+# Research Question 4: How are user ratings distributed from 1 to 5 stars?
 def ratings_distribution_analysis(ratings):
     """Calculate the distribution of user ratings."""
 
@@ -118,7 +124,6 @@ def ratings_distribution_analysis(ratings):
     print(result)
 
     return result
-
 
 
 if __name__ == "__main__":

@@ -1,10 +1,11 @@
 
-from data_loader import load_data
+from src.data_loader import load_data
 
-##EXPLORATION OF BOOKS DATASET
+
+# Exploration of books dataset
 books = load_data("books.csv")
 
-print("\nDATASET INFORMATION")
+print("\nBOOKS INFORMATION")
 books.info()
 
 print("\nDESCRIPTIVE STATISTICS")
@@ -21,7 +22,7 @@ print("\nDUPLICATED ROWS")
 print(books.duplicated().sum())
 
 
-##EXPLORATION OF RATINGS DATASET
+# Exploration of ratings dataset
 ratings = load_data("ratings.csv")
 
 print("\nRATINGS INFORMATION")
@@ -34,7 +35,7 @@ print("\nDUPLICATED ROWS")
 print(ratings.duplicated().sum())
 
 
-##EXPLORATION OF TAGS DATASET
+# Exploration of tags dataset
 tags = load_data("tags.csv")
 
 print("\nTAGS INFORMATION")
@@ -47,7 +48,7 @@ print("\nDUPLICATED ROWS")
 print(tags.duplicated().sum())
 
 
-##EXPLORATION OF BOOK TAGS DATASET
+# Exploration of book tags dataset
 book_tags = load_data("book_tags.csv")
 
 print("\nBOOK_TAGS INFORMATION")
@@ -58,5 +59,3 @@ print(book_tags.isnull().sum())
 
 print("\nDUPLICATED ROWS")
 print(book_tags.duplicated().sum())
-
-

@@ -85,6 +85,7 @@ with st.container(border=True):
     st.write(
         f"User ratings are predominantly positive. "
         f"Approximately {positive_percentage:.1f}% of all ratings "
-        "are either four or five stars, with four stars "
-        "being the most frequently assigned score."
+        "are either four or five stars, with"
+        f"{most_common_rating} being the most frequently"
+        "assigned score."
     )

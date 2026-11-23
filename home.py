@@ -2,20 +2,72 @@
 import streamlit as st
 
 
-# Hero section
+# Hero section with minimalist book illustration
 st.markdown("""
 <style>
+.hero-wrapper {
+    background: linear-gradient(180deg, #F5FAFF 0%, #EAF4FF 100%);
+    border: 1px solid #D6E6F5;
+    border-radius: 32px;
+    padding: 30px 20px 20px;
+    margin-bottom: 28px;
+}
+
 .hero {
     text-align: center;
-    padding: 75px 20px 65px;
+    padding: 35px 20px 55px;
 }
+
+.book-motif {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.book-motif span {
+    display: inline-block;
+    width: 16px;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #CFE6FA 0%, #8EC5F6 100%);
+    box-shadow: 0 4px 10px rgba(0, 113, 227, 0.08);
+}
+
+.book-motif span:nth-child(1) {
+    height: 46px;
+    transform: rotate(-6deg);
+}
+
+.book-motif span:nth-child(2) {
+    height: 58px;
+    background: linear-gradient(180deg, #B9DBF8 0%, #6FB2EE 100%);
+}
+
+.book-motif span:nth-child(3) {
+    height: 52px;
+    transform: rotate(4deg);
+}
+
+.book-motif span:nth-child(4) {
+    height: 62px;
+    background: linear-gradient(180deg, #D9ECFD 0%, #A8D1F5 100%);
+}
+
+.book-motif span:nth-child(5) {
+    height: 48px;
+    transform: rotate(-3deg);
+}
+
 .hero h1 {
     font-size: clamp(42px, 6vw, 76px);
     font-weight: 700;
     letter-spacing: -2px;
     line-height: 1.1;
     color: #1D1D1F;
+    margin-bottom: 0;
 }
+
 .hero p {
     font-size: 21px;
     color: #6E6E73;
@@ -23,15 +75,24 @@ st.markdown("""
 }
 </style>
 
-<div class="hero">
-    <h1>Discover what makes<br>a book great.</h1>
-    <p>Explore 10,000 books and millions of Goodreads ratings.</p>
+<div class="hero-wrapper">
+    <div class="hero">
+        <div class="book-motif" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1>Discover what makes<br>a book great.</h1>
+        <p>Explore 10,000 books and millions of Goodreads ratings.</p>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
 
 # Dataset overview
-st.header("The dataset. At a glance.")
+st.header("The dataset at a glance.")
 
 col1, col2, col3 = st.columns(3, gap="medium")
 

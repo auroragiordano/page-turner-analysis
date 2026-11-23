@@ -2,13 +2,13 @@
 [theme]
 base = "light"
 primaryColor = "#0071E3"
-backgroundColor = "#F5F5F7"
+backgroundColor = "#EAF4FF"
 secondaryBackgroundColor = "#FFFFFF"
 textColor = "#1D1D1F"
 font = "sans-serif"
 baseRadius = "large"
-borderColor = "#E5E5E7"
+borderColor = "#D6E6F5"
 
 [theme.sidebar]
-backgroundColor = "#FFFFFF"
+backgroundColor = "#F5FAFF"
 textColor = "#1D1D1F"

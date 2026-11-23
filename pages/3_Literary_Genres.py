@@ -85,7 +85,7 @@ st.write("")
 with st.container(border=True):
     st.markdown("**KEY INSIGHT**")
 
-    st.subheader("A little magic goes a long way.")
+    st.subheader("Fantasy takes the spotlight.")
 
     st.write(
         f"Displaying the top {top_n} literary categories. "

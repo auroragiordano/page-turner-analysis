@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     print("Books with publication year:", len(books_year_clean))
 
-    # Check rating values
+    # Validate ratings without modifying the dataset
     ratings = load_data("ratings.csv")
     invalid_ratings = (ratings["rating"] < 1) | (ratings["rating"] > 5)
 
