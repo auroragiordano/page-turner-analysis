@@ -1,6 +1,6 @@
 # Page Turners Analysis
 
-Page Turners is a Python data analysis project that explores book popularity and user ratings using the Goodreads-10k dataset. The project includes data cleaning, statistical analysis, visualizations, and an interactive Streamlit dashboard.
+Page Turners is a Python data analysis project that explores book popularity and user ratings using the Goodreads-10k dataset. The project includes data cleaning, descriptive statistical analysis, visualizations, and an interactive Streamlit dashboard.
 
 ## Project Objectives
 
@@ -22,7 +22,7 @@ Four CSV files are used:
 - `tags.csv`: names and identifiers of user-generated tags.
 - `book_tags.csv`: associations between books and tags.
 
-The datasets must be downloaded separately and placed in the `data/` folder.
+The datasets are not included in this repository. They must be downloaded separately from the original dataset source and placed inside the `data/` folder.
 
 ## Technologies
 
@@ -39,7 +39,13 @@ Additional Python dependencies are listed in `requirements.txt`.
 
 ```text
 page-turner-analysis/
+├── .streamlit/
+│   └── config.toml
 ├── data/
+│   ├── books.csv
+│   ├── ratings.csv
+│   ├── tags.csv
+│   └── book_tags.csv
 ├── pages/
 │   ├── 1_Popularity.py
 │   ├── 2_Publication_Years.py
@@ -59,10 +65,13 @@ page-turner-analysis/
 └── README.md
 ```
 
+*Note: The CSV files shown under `data/` must be downloaded separately. The `.venv/` virtual environment is also excluded from version control.*
+
 ## Installation and Usage
 
 1. Clone the repository and open the project folder.
-2. Create and activate a virtual environment:
+
+2. Create and activate a Python virtual environment (macOS/Linux):
 
    ```bash
    python3 -m venv .venv
@@ -75,30 +84,39 @@ page-turner-analysis/
    python -m pip install -r requirements.txt
    ```
 
-4. Download the four CSV datasets and place them inside `data/`.
+4. Create the data folder if it does not already exist:
 
-5. Start the Streamlit dashboard from the project root:
+   ```bash
+   mkdir -p data
+   ```
+
+5. Download `books.csv`, `ratings.csv`, `tags.csv`, and `book_tags.csv` from the [goodbooks-10k repository](https://github.com/zygmuntz/goodbooks-10k) and place them inside `data/`.
+
+6. Start the Streamlit dashboard from the project root:
 
    ```bash
    python -m streamlit run app.py
    ```
 
-The application will be accessible locally, usually at `http://localhost:8501`.
+The application will usually be accessible locally at [http://localhost:8501](http://localhost:8501).
 
 ## Streamlit Dashboard
 
 The dashboard contains five pages:
 
 - **Home:** project overview, dataset information, and research objectives.
-- **Popularity & Ratings:** scatter plot and Pearson correlation.
-- **Publication Years:** average ratings by decade with an interactive time-range filter.
+- **Popularity & Ratings:** scatter plot and Pearson correlation coefficient.
+- **Publication Years:** average ratings by publication decade with an interactive time-range filter.
 - **Literary Genres:** comparison of selected literary categories with a Top 3/5/9 filter.
-- **Ratings Distribution:** distribution of individual ratings from 1 to 5 stars.
+- **Ratings Distribution:** distribution of individual user ratings from 1 to 5 stars.
 
 The application uses cached data loading to avoid repeatedly reading the CSV files.
 
 ## Notes
 
-The analysis is descriptive and based on the available Goodreads data. Literary categories are identified using user-generated tags, and books may belong to multiple categories.
+The analysis is descriptive and based on the available Goodreads data.
 
-The publication-year chart includes only decades with at least 30 books.
+- Literary categories are identified using user-generated tags, and books may belong to multiple categories.
+- The average rating for each genre is calculated as an **unweighted arithmetic mean of the books' average ratings**. Each book contributes equally, regardless of its number of individual user ratings.
+- The publication-year chart includes only decades containing at least 30 books.
+- The Pearson correlation measures linear association and does not imply causation.
