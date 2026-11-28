@@ -115,10 +115,10 @@ def ratings_distribution_analysis(ratings):
 
     # Count ratings for each star value
     result = (
-        ratings["rating"]
-        .value_counts()
-        .sort_index()
-    )
+    ratings["rating"]
+    .value_counts()
+    .reindex([1, 2, 3, 4, 5], fill_value=0)
+)
 
     print("\nDistribution of user ratings:")
     print(result)

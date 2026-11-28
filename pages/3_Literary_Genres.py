@@ -88,8 +88,8 @@ with st.container(border=True):
     st.subheader("Fantasy takes the spotlight.")
 
     st.write(
-        f"Displaying the top {top_n} literary categories. "
-        "Fantasy has the highest average rating among the "
-        "nine selected categories, although differences "
-        "between genres are relatively small."
-    )
+    f"Displaying the top {top_n} literary categories. "
+    "Fantasy has the highest average rating among the "
+    f"{top_n} displayed categories, although differences "
+    "between genres are relatively small."
+)

@@ -83,9 +83,8 @@ with st.container(border=True):
     st.subheader("Readers tend to see the bright side.")
 
     st.write(
-        f"User ratings are predominantly positive. "
-        f"Approximately {positive_percentage:.1f}% of all ratings "
-        "are either four or five stars, with"
-        f"{most_common_rating} being the most frequently"
-        "assigned score."
-    )
+    f"User ratings are predominantly positive. "
+    f"Approximately {positive_percentage:.1f}% of all ratings "
+    f"are either four or five stars, with {most_common_rating} "
+    f"being the most frequently assigned score."
+)
